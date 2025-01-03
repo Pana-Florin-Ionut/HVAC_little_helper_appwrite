@@ -1,11 +1,23 @@
 from appwrite.client import Client
 from appwrite.services.databases import Databases
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+endpoint = os.getenv("APPWRITE_ENDPOINT")
+project_id = os.getenv("APPWRITE_PROJECT_ID")
+api_key = os.getenv("APPWRITE_API_KEY")
+
+print("Endpoint:", endpoint)
+print("Project ID:", project_id)
+print("API Key:", api_key)
 # Initialize Appwrite Client
 client = Client()
-client.set_endpoint('http://localhost/v1')  # Replace with your Appwrite endpoint
-client.set_project('6776d59f00263b242e95')       # Replace with your project ID
-client.set_key('standard_4ed784b11fed884b4da2cc9eb82e034a43948360e018e96ce6c3f56be979c47814972f4a9e5247ac5be75ec14a21593e026dd965df14f21b2bd53f70edfc2cd1395d4c94a99b765028710bb8955ffdb828767038db584c57393d21a82c422a62b5355272e0743179ead686cb3aa0092a89cc1847ced21cecd7b1eed9ee90254f')
+client.set_endpoint(endpoint)  # Replace with your Appwrite endpoint
+client.set_project(project_id)       # Replace with your project ID
+client.set_key(api_key)
 
 
 # Initialize Database Service
