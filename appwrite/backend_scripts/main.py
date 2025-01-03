@@ -1,29 +1,20 @@
-from appwrite.client import Client
-from appwrite.services.databases import Databases
+from create_main_db import create_main_db
+from helper_functions import get_main_db_id
+from helper_functions import databases
 
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-endpoint = os.getenv("APPWRITE_ENDPOINT")
-project_id = os.getenv("APPWRITE_PROJECT_ID")
-api_key = os.getenv("APPWRITE_API_KEY")
-
-print("Endpoint:", endpoint)
-print("Project ID:", project_id)
-print("API Key:", api_key)
-# Initialize Appwrite Client
-client = Client()
-client.set_endpoint(endpoint)  # Replace with your Appwrite endpoint
-client.set_project(project_id)       # Replace with your project ID
-client.set_key(api_key)
+DATABASE_ID = get_main_db_id()
 
 
-# Initialize Database Service
-databases = Databases(client)
+if __name__ == '__main__':
+    if not DATABASE_ID:
+        DATABASE_ID = create_main_db()
+    else:
+        print(databases.list())
 
-print(databases.list())
+
+
+# for database in databases.list():
+    # print(database)
 # def setup_database():
 #     try:
 #         # Create Database
