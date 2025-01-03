@@ -33,7 +33,7 @@ jobs:
           APPWRITE_PROJECT_ID: ${{ secrets.APPWRITE_PROJECT_ID }}
           APPWRITE_API_KEY: ${{ secrets.APPWRITE_API_KEY }}
         run: |
-          python backend/scripts/setup_database.py
+          python backend/scripts/main.py
 
       # Step 5: Set up Node.js
       - name: Set up Node.js
