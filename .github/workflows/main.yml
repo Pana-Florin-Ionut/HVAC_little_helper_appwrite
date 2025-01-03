@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r backend_scripts/requirements.txt
+          pip install -r appwrite/backend_scripts/requirements.txt
 
       # Step 4: Run Database Setup Script
       - name: Run database setup
